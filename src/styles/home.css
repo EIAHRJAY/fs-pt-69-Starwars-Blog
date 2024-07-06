@@ -1,0 +1,43 @@
+/* home.css */
+.container {
+  padding: 20px;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap; /* Para asegurarse de que los elementos no se envuelvan */
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  margin-bottom: 20px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px; /* Barra de desplazamiento horizontal */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.card {
+  display: inline-block; /* Asegura que las tarjetas se dispongan en línea horizontal */
+  min-width: 10rem; /* Ancho mínimo de la tarjeta */
+  height: 20rem; /* Altura fija para todas las tarjetas */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.card-img-top {
+  height: 10rem; /* Altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen se recorte para llenar el contenedor */
+}
