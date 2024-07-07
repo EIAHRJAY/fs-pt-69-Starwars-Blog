@@ -18,7 +18,7 @@ export const Home = () => {
         />
 
         <CardComponent
-          imageSrc="https://starwars-visualguide.com/assets/img/characters/1.jpg"
+          imageSrc="https://starwars-visualguide.com/assets/img/characters/2.jpg"
           title="Luke Skywalker"
           gender="Gender : Male"
           haircolor="Hair Color: blond"
@@ -26,6 +26,7 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/characters/1.jpg"
           title="Luke Skywalker"
@@ -35,6 +36,7 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/characters/1.jpg"
           title="Luke Skywalker"
@@ -44,6 +46,7 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/characters/1.jpg"
           title="Luke Skywalker"
@@ -53,11 +56,13 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         {/* Añade más tarjetas aquí */}
       </div>
 
       <h2 className="text-white">Vehicles</h2>
       <div className="scroll-container">
+       
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/vehicles/4.jpg"
           title="Sand Crawler"
@@ -67,6 +72,7 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/vehicles/4.jpg"
           title="Sand Crawler"
@@ -83,6 +89,7 @@ export const Home = () => {
 
       <h2 className="text-white">Planets</h2>
       <div className="scroll-container">
+       
         <CardComponent
           imageSrc="https://starwars-visualguide.com/assets/img/planets/3.jpg"
           title="Tatooine"
@@ -92,6 +99,7 @@ export const Home = () => {
           buttonLink="#"
           buttonText="Go somewhere"
         />
+
         {/* Añade más tarjetas aquí */}
       </div>
     </div>
