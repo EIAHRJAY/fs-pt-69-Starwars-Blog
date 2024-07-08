@@ -1,8 +1,17 @@
-import React from "react";
+import React,{ useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsHeartFill } from "react-icons/bs";
+import { Context } from "../store/appContext";
+
 
 export const Navbar = () => {
+
+  const { store, actions } = useContext(Context);
+
+  const handleRemoveFavorite = (uid) => {
+    actions.removeFavorite(uid);
+  };
+
   return (
     <nav className="navbar navbar-light bg-black mb-3">
       <div className="container d-flex justify-content-between">
@@ -26,21 +35,24 @@ export const Navbar = () => {
             FAVORITES <BsHeartFill />
           </button>
           <ul className="dropdown-menu">
-            <li>
-              <button className="dropdown-item" type="button">
-                Action
-              </button>
-            </li>
-            <li>
-              <button className="dropdown-item" type="button">
-                Another action
-              </button>
-            </li>
-            <li>
-              <button className="dropdown-item" type="button">
-                Something else here
-              </button>
-            </li>
+          {store.favorites && store.favorites.length > 0 ? (
+              store.favorites.map((favorite, index) => (
+                <li
+                  key={index}
+                  className="dropdown-item d-flex justify-content-between align-items-center"
+                >
+                  <span>{favorite.title}</span>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleRemoveFavorite(favorite.uid)}
+                  >
+                    X
+                  </button>
+                </li>
+              ))
+            ) : (
+              <li className="dropdown-item">No favorites added</li>
+            )}
           </ul>
         </div>
       </div>

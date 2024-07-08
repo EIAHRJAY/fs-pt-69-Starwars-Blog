@@ -6,7 +6,7 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
   const { store, actions } = useContext(Context);
-  const { uid } = useParams();
+  const { type, uid } = useParams();
   
   const isCharacter = store.characters.some(character => character.uid.toString() === uid.toString());
   const isVehicle = store.vehicles.some(vehicle => vehicle.uid.toString() === uid.toString());
@@ -14,24 +14,31 @@ export const Demo = () => {
 
 
   useEffect(() => {
-    if (isCharacter) {
+    if (type === "character") {
       if (uid && !store.characterDetails[uid]) {
         actions.fetchCharacterDetails(uid);
       }
-    } else if (isVehicle) {
+    } else if (type === "vehicle") {
       if (uid && !store.vehicleDetails[uid]) {
         actions.fetchVehicleDetails(uid);
       }
-    } else if (isPlanet) {
+    } else if (type === "planet") {
       if (uid && !store.planetDetails[uid]) {
         actions.fetchPlanetDetails(uid);
       }
     }
-  }, [uid, isCharacter, isVehicle, isPlanet, actions, store.characterDetails, store.vehicleDetails, store.planetDetails]);
+  }, [type, uid, actions, store.characterDetails, store.vehicleDetails, store.planetDetails]);
 
-  const details = isCharacter ? store.characterDetails[uid] || {} :
-                  isVehicle ? store.vehicleDetails[uid] || {} :
+  const details = type === "character" ? store.characterDetails[uid] || {} :
+                  type === "vehicle" ? store.vehicleDetails[uid] || {} :
                   store.planetDetails[uid] || {};
+
+  const imageUrl = type === "character" 
+    ? `https://starwars-visualguide.com/assets/img/characters/${uid}.jpg` 
+    : type === "vehicle"
+    ? `https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`
+    : `https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`;
+
 
   return (
     <div className="container">
@@ -41,13 +48,9 @@ export const Demo = () => {
           title={details.name || "Loading..."}
 
           description={`This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. ${
-            isCharacter ? "" : isVehicle ? `Model: ${details.model || "unknown"}, Manufacturer: ${details.manufacturer || "unknown"}` : `Climate: ${details.climate || "unknown"}, Terrain: ${details.terrain || "unknown"}`
+            type === "character" ? "" : type === "vehicle" ? `Model: ${details.model || "unknown"}, Manufacturer: ${details.manufacturer || "unknown"}` : `Climate: ${details.climate || "unknown"}, Terrain: ${details.terrain || "unknown"}`
           }`}
-          imageUrl={isCharacter 
-            ? `https://starwars-visualguide.com/assets/img/characters/${uid}.jpg` 
-            : isVehicle
-            ? `https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`
-            : `https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`}
+          imageUrl={imageUrl}
           lastUpdated={details.edited || "unknown"}
         />
         </div>

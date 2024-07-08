@@ -1,9 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsBagHeartFill } from "react-icons/bs";
+import { Context } from "../store/appContext";
 
 
 const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLink, buttonText }) => {
+  
+  const { actions } = useContext(Context);
+
+  const handleAddFavorite = () => {
+    actions.addFavorite({ uid, title, type });
+  };
+
   return (
     <div className="card" >
       <img
@@ -21,7 +29,7 @@ const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLin
           <Link to={buttonLink} className="btn btn-dark">
             {buttonText}
           </Link>
-          <button type="button" className="btn btn-warning ms-4"><BsBagHeartFill /></button>
+          <button type="button" className="btn btn-warning ms-4" onClick={handleAddFavorite}><BsBagHeartFill /></button>
         </div>
       </div>
     </div>

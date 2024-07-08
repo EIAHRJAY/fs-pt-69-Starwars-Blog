@@ -30,8 +30,10 @@ export const Home = () => {
                             gender={`Gender: ${details.gender || "unknown"}`}
                             haircolor={`Hair Color: ${details.hair_color || "unknown"}`}
                             eyecolor={`Eye Color: ${details.eye_color || "unknown"}`}
-                            buttonLink={`/demo/${character.uid}`}
+                            buttonLink={`/demo/character/${character.uid}`}
                             buttonText="Go somewhere"
+                            uid={character.uid}
+                            type="character"
                         />
                     );
                 })}
@@ -39,7 +41,7 @@ export const Home = () => {
 
             <h2 className="text-white">Vehicles</h2>
             <div className="scroll-container">
-                {store.vehicles && store.vehicles.map(vehicle => {
+                { store.vehicles.map(vehicle => {
                     const details = store.vehicleDetails[vehicle.uid] || {};
                     return (
                         <CardComponent
@@ -49,8 +51,11 @@ export const Home = () => {
                             gender={`Length: ${details.length || "unknown"}`}
                             haircolor={`Passengers: ${details.passengers || "unknown"}`}
                             eyecolor={`Cargo capacity : ${details.cargo_capacity || "unknown"}`}
-                            buttonLink={`/demo/${vehicle.uid}`}
+                            buttonLink={`/demo/vehicle/${vehicle.uid}`}
                             buttonText="Go somewhere"
+                            uid={vehicle.uid}
+                            type="vehicle"
+              
                         />
                     );
                 })}
@@ -59,7 +64,7 @@ export const Home = () => {
 
             <h2 className="text-white">Planets</h2>
             <div className="scroll-container">
-                {store.planets && store.planets.map(planet => {
+                {store.planets.map(planet => {
                   const details = store.planetDetails[planet.uid] || {};
                   return (
                     <CardComponent
@@ -69,8 +74,11 @@ export const Home = () => {
                       gender={`Diameter: ${details.diameter || "unknown"}`}
                       haircolor={`Climate: ${details.climate || "unknown"}`}
                       eyecolor={`Terrain: ${details.orbital_period || "unknown"}`}
-                      buttonLink={`/demo/${planet.uid}`}
+                      buttonLink={`/demo/planet/${planet.uid}`}
                       buttonText="Go somewhere"
+                      uid={planet.uid}
+                      type="planet"
+
                     />
                   );
                 })}
