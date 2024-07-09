@@ -1,8 +1,7 @@
 import React, { Component,useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { BsBagHeartFill } from "react-icons/bs";
 import { Context } from "../store/appContext";
-
+import { BsHeartFill } from "react-icons/bs";
 
 const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLink, buttonText, uid, type ,fallbackSrc}) => {
   
@@ -10,7 +9,7 @@ const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLin
   const [currentImageSrc, setCurrentImageSrc] = useState(imageSrc);
 
   const handleAddFavorite = (uid) => {
-    //actions.addFavorite({ uid, title, type });
+    
     actions.addFavorite({ uid, title, type });
   };
 
@@ -24,7 +23,7 @@ const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLin
         src={currentImageSrc}
         className="card-img-top"
         alt={title}
-        style={{ height: "10rem", objectFit: "cover" }}
+        
         onError={handleImageError}
       />
       <div className="card-body">
@@ -36,7 +35,7 @@ const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLin
           <Link to={buttonLink} className="btn btn-dark">
             {buttonText}
           </Link>
-          <button type="button" className="btn btn-warning ms-4"  onClick={handleAddFavorite}> <BsBagHeartFill /> </button>
+          <button type="button" className="btn btn-warning ms-4"  onClick={handleAddFavorite}> <BsHeartFill /> </button>
         </div>
       </div>
     </div>

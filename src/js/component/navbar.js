@@ -2,6 +2,7 @@ import React,{ useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsHeartFill } from "react-icons/bs";
 import { Context } from "../store/appContext";
+import { BsTrash3Fill } from "react-icons/bs";
 
 
 export const Navbar = () => {
@@ -57,7 +58,7 @@ export const Navbar = () => {
                     className="btn btn-danger btn-sm"
                     onClick={() => handleRemoveFavorite(favorite.uid)}
                   >
-                    X
+                      <BsTrash3Fill />
                   </button>
                 </li>
               ))
