@@ -26,6 +26,7 @@ export const Home = () => {
                         <CardComponent
                             key={character.uid}
                             imageSrc={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`}
+                            fallbackSrc= "https://starwars-visualguide.com/assets/img/placeholder.jpg"
                             title={details.name || character.name}
                             gender={`Gender: ${details.gender || "unknown"}`}
                             haircolor={`Hair Color: ${details.hair_color || "unknown"}`}
@@ -47,6 +48,7 @@ export const Home = () => {
                         <CardComponent
                             key={vehicle.uid}
                             imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`}
+                            fallbackSrc= "https://starwars-visualguide.com/assets/img/placeholder.jpg"
                             title={details.name || vehicle.name}
                             gender={`Length: ${details.length || "unknown"}`}
                             haircolor={`Passengers: ${details.passengers || "unknown"}`}
@@ -70,6 +72,7 @@ export const Home = () => {
                     <CardComponent
                       key={planet.uid}
                       imageSrc={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}
+                      fallbackSrc= "https://starwars-visualguide.com/assets/img/placeholder.jpg"
                       title={details.name || planet.name}
                       gender={`Diameter: ${details.diameter || "unknown"}`}
                       haircolor={`Climate: ${details.climate || "unknown"}`}

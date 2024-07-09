@@ -30,9 +30,20 @@ export const Navbar = () => {
             className="btn btn-secondary  ms-4 fw-bolder"
             type="button"
             data-bs-toggle="dropdown"
+            data-bs-auto-close="outside" 
             aria-expanded="false"
           >
-            FAVORITES <BsHeartFill />
+            FAVORITES  <BsHeartFill />  
+            
+            {store.favorites.length > 0 && (
+              <span
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style={{ fontSize: "0.75rem", padding: "5px 10px" }}
+              >
+                {store.favorites.length}
+              </span>
+            )}
+
           </button>
           <ul className="dropdown-menu">
           {store.favorites && store.favorites.length > 0 ? (

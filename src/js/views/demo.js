@@ -51,6 +51,7 @@ export const Demo = () => {
             type === "character" ? "" : type === "vehicle" ? `Model: ${details.model || "unknown"}, Manufacturer: ${details.manufacturer || "unknown"}` : `Climate: ${details.climate || "unknown"}, Terrain: ${details.terrain || "unknown"}`
           }`}
           imageUrl={imageUrl}
+          fallbackSrc= "https://starwars-visualguide.com/assets/img/placeholder.jpg"
           lastUpdated={details.edited || "unknown"}
         />
         </div>

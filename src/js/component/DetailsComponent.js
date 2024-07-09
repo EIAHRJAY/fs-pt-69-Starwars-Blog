@@ -1,15 +1,25 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "../../styles/demo.css";
 
-const Details = ({ title, description, imageUrl, lastUpdated }) => {
+const Details = ({ title, description, imageUrl, lastUpdated, fallbackSrc }) => {
+
+  const [currentImageUrl, setCurrentImageUrl] = useState(imageUrl);
+
+   
+  const handleImageError = () => {
+    setCurrentImageUrl(fallbackSrc);
+  };
+
+
     return (
       <div className="card mb-3 details-card">
         <div className="row g-0">
           <div className="col-md-4">
             <img 
-              src={imageUrl} 
+              src={currentImageUrl} 
               className="img-fluid rounded-start details-img"  
               alt={title} 
+              onError={handleImageError}  
             />
           </div>
           <div className="col-md-8">
