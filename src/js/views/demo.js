@@ -8,9 +8,9 @@ export const Demo = () => {
   const { store, actions } = useContext(Context);
   const { type, uid } = useParams();
   
-  const isCharacter = store.characters.some(character => character.uid.toString() === uid.toString());
-  const isVehicle = store.vehicles.some(vehicle => vehicle.uid.toString() === uid.toString());
-  const isPlanet = store.planets.some(planet => planet.uid.toString() === uid.toString());
+  // const isCharacter = store.characters.some(character => character.uid.toString() === uid.toString());
+  // const isVehicle = store.vehicles.some(vehicle => vehicle.uid.toString() === uid.toString());
+  // const isPlanet = store.planets.some(planet => planet.uid.toString() === uid.toString());
 
 
   useEffect(() => {
@@ -47,9 +47,8 @@ export const Demo = () => {
 
           title={details.name || "Loading..."}
 
-          description={`This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. ${
-            type === "character" ? "" : type === "vehicle" ? `Model: ${details.model || "unknown"}, Manufacturer: ${details.manufacturer || "unknown"}` : `Climate: ${details.climate || "unknown"}, Terrain: ${details.terrain || "unknown"}`
-          }`}
+          details={details}
+          type={type}
           imageUrl={imageUrl}
           fallbackSrc= "https://starwars-visualguide.com/assets/img/placeholder.jpg"
           lastUpdated={details.edited || "unknown"}

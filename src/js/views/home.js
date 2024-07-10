@@ -54,7 +54,6 @@ export const Home = () => {
                             haircolor={`Passengers: ${details.passengers || "unknown"}`}
                             eyecolor={`Cargo capacity : ${details.cargo_capacity || "unknown"}`}
                             buttonLink={`/demo/vehicle/${vehicle.uid}`}
-                            buttonText="Go somewhere"
                             uid={vehicle.uid}
                             type="vehicle"
               

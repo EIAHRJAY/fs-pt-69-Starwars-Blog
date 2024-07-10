@@ -32,8 +32,8 @@ const CardComponent = ({ imageSrc, title, gender, haircolor, eyecolor, buttonLin
         <p className="card-text mb-0">{haircolor}</p>
         <p className="card-text">{eyecolor}</p>
         <div>
-          <Link to={buttonLink} className="btn btn-dark">
-            {buttonText}
+          <Link to={buttonLink} className="btn btn-dark  fw-bolder">
+            MORE INFO
           </Link>
           <button type="button" className="btn btn-warning ms-4"  onClick={handleAddFavorite}> <BsHeartFill /> </button>
         </div>
