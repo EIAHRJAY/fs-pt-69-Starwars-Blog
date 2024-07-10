@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
                     for (const planet of data.results) {
                         await getActions().fetchPlanetDetails(planet.uid);
-                        await sleep(1000); // Espera 1 segundo entre solicitudes
+                        await sleep(1000); 
                       }
                     }
                   } catch (error) {
@@ -127,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
                         for (const vehicle of data.results) {
                             await getActions().fetchVehicleDetails(vehicle.uid);
-                            await sleep(1000); // Espera 1 segundo entre solicitudes
+                            await sleep(1000); 
                           }
                         }
                       } catch (error) {
